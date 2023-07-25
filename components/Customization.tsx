@@ -26,6 +26,7 @@ const Customization = () => {
       max: 24,
       value: customizationOutput.iconSize,
       step: 1,
+    
     },
     {
       label: "Image Size",
@@ -36,6 +37,8 @@ const Customization = () => {
       value: customizationOutput.imageSize,
       step: 1,
     },
+
+
   ];
   const colorPickerData = [
     {

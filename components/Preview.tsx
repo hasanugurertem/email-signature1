@@ -102,14 +102,14 @@ const Preview = ({
   let linkColor = customizationOutput.linkColor;
 
   return (
-    <div className="w-full rounded-lg bg-grays">
-  <div className="w-full h-7 rounded-lg bg-grays flex gap-3">
+    <div className="w-full rounded-lg bg-gray border border-solid border-gray-500">
+  <div className="w-full h-10 rounded-lg bg-gray-300 flex gap-3">
         <div className="w-3 h-3 rounded-full bg-[#FD4646] ml-3 mt-2"></div>
         <div className="w-3 h-3 rounded-full bg-[#FEB024] mt-2"></div>
         <div className="w-3 h-3 rounded-full bg-[#2AC131] mt-2"></div>
   </div>
-      <div className=" pl-4 border-t-2 border-grays-3">Send from: emma@woodpecker.com Emma Smith</div>
-      <div className="pl-4 border-y-2  border-grays-3">
+      <div className=" pl-4 h-10 border-t-2 border-grays-3">Send from: emma@woodpecker.com Emma Smith</div>
+      <div className="pl-4 h-10 border-y-2 border-grays-3">
         Subject: Get new company email signatures
 </div>
 

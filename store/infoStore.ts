@@ -35,7 +35,6 @@ type State = {
 const useInfoStore = create<State>((set) => ({
   infoOutput: {
     textInput: "",
-
     signOff: "Regards",
 
     fullName: "Emma Smith",
@@ -48,7 +47,7 @@ const useInfoStore = create<State>((set) => ({
     website: "https://woodpecker.co/",
 
     LinkedInLink: "https://linkedin.com/company/woodpecker-co/",
-    GitHubLink: "",
+    GitHubLink: " ",
     YouTubeLink: "https://youtube.com/c/Woodpeckerco/",
     TwitterLink: "https://twitter.com/Woodpeckerapp/",
     FacebookLink: "https://facebook.com/woodpeckerapp/",

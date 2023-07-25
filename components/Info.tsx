@@ -136,13 +136,13 @@ const Info = () => {
 
   return (
     <>
-      <div className="m-8">
-        <div className="p-4 border-b border-background">
-          <Heading
-            primary="Your info"
-            secondary="Type in your data to see how it looks on the template"
-          />
-        </div>
+<div className="m-1">
+        <div className="p-1 border-b border-background">
+    <Heading
+      primary="Your info"
+      secondary="Type in your data to see how it looks on the template"
+    />
+  </div>
 
         <div className="m-4 pb-4 border-b border-background">
           {signOffData.map((item) => (
@@ -156,6 +156,32 @@ const Info = () => {
             />
           ))}
         </div>
+        
+        <div className="my-4 pb-4 border-b border-background">
+          <div className="mx-2 my-1">
+            <Description
+              primary="Add photo"
+              secondary="Pick your best photo (square or round), and click the question mark icon below to see how to add it."
+            />
+          </div>
+          </div>
+
+          <label
+            className="block w-fit p-4 bg-background border border-nureply-blue-full rounded-lg font-semibold text-nureply-blue-full hover:text-nureply-blue transition-colors"
+            htmlFor="image"
+          >
+            Upload Image
+          </label>
+          <input
+            className="hidden"
+            type="file"
+            id="image"
+            name="image"
+            accept="image/*"
+            onChange={onImageChange}
+          />
+        </div>
+      
 
         <div className="my-4 pb-4 border-b border-background">
           <div className="m-2 py-4">
@@ -197,30 +223,7 @@ const Info = () => {
               isValidLink={isValidLink(item.value)} 
             />
           ))}
-        </div>
-
-        <div className="my-4 pb-4 border-b border-background">
-          <div className="mx-2 my-4">
-            <Description
-              primary="Add photo"
-              secondary="Pick your best photo (square or round), and click the question mark icon below to see how to add it."
-            />
-          </div>
-          <label
-            className="block w-fit p-4 bg-background border border-nureply-blue-full rounded-lg font-semibold text-nureply-blue-full hover:text-nureply-blue transition-colors"
-            htmlFor="image"
-          >
-            Upload Image
-          </label>
-          <input
-            className="hidden"
-            type="file"
-            id="image"
-            name="image"
-            accept="image/*"
-            onChange={onImageChange}
-          />
-        </div>
+        
       </div>
     </>
   );

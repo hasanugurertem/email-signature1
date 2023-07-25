@@ -49,9 +49,3 @@ export default function Home() {
     </>
   );
 }
-
-{
-  /*overflow-y-auto basis-3/8 bg-window px-5 py-10 max-h-screen
-sticky hidden basis-1/8 h-screen top-8 lg:block bg-window border-x-2 border-grays-4
-basis-4/8 sticky hidden h-screen top-8 p-5 xl:block bg-window border-x-2 border-grays-4*/
-}
