@@ -19,7 +19,7 @@ type State = {
 const useCustomizationStore = create<State>((set) => ({
   customizationOutput: {
     fontSize: 12,
-    iconSize: 16,
+    iconSize: 14,
     imageSize: 100,
     nameColor: "",
     textColor: "",

@@ -15,7 +15,7 @@ const ColorPicker = ({ label, id, name, value, onChange }: IColorPicker) => {
 
   const handleDefaultColorClick = (defaultColor: string) => {
     setColor(defaultColor);
-    onChange({ target: { name, value: defaultColor } } as ChangeOrMouseEvent); 
+    onChange({ target: { name, value: defaultColor } } as ChangeOrMouseEvent);
   };
 
   const onColorChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -25,12 +25,12 @@ const ColorPicker = ({ label, id, name, value, onChange }: IColorPicker) => {
 
   return (
     <>
-      <div className="m-2">
-        <label className="block pb-2 font-semibold text-default" htmlFor={id}>
+      <div className="m-2" style={{ backgroundColor: "white" }}>
+        <label className="block pb-2 font-semibold text-default" htmlFor={id} style={{ fontFamily: "inherit" }}>
           {label}
         </label>
         <input
-          style={{ backgroundColor: color }}
+          style={{ border: "2px solid black", borderRadius: "10px", display: "flex", justifyContent: "center", alignItems: "center" }}
           className="w-[40px] h-[40px] p-4 border-4 border-nureply-blue-full rounded-lg overflow-hidden"
           type="color"
           id={id}
@@ -38,7 +38,6 @@ const ColorPicker = ({ label, id, name, value, onChange }: IColorPicker) => {
           value={color}
           onChange={onColorChange}
         />
-
       </div>
     </>
   );

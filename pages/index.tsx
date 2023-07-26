@@ -23,7 +23,7 @@ export default function Home() {
       </div>
 
       <div className="flex w-full py-10 bg-background">
-        <aside className="sticky hidden basis-2/12 h-screen top-8 lg:block bg-window border-x-2 border-grays-4">
+        <aside className="sticky hidden basis-3/12 h-screen top-8 lg:block bg-window border-x-2 border-grays-4">
           {/* Left column area */}
           <div className="grid justify-items-end"> <Step /></div>
         </aside>

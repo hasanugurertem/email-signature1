@@ -1,6 +1,6 @@
 import { useStepStore } from "@/store/stepStore";
 import clsx from "clsx";
-import { LayoutTemplate, UserCircle, Wrench } from "lucide-react";
+import { ClipboardType, UserCircle, Wrench } from "lucide-react";
 
 const steps = [1, 2, 3];
 
@@ -12,12 +12,16 @@ const Step = () => {
         return (
           <div
             key={mapStep}
-            className="ml-10 bg-window rounded-lg cursor-pointer m-5 w-2/5 text-[#CFD4DA]"
+            className="ml-10 bg-window -mr-[2px] my-5 w-2/5 text-[#CFD4DA]"
             onClick={() => setStep(mapStep)}
           >
             <div
-              className={clsx("flex items-center p-4", {
+              className={clsx("flex items-center py-3 pl-2", {
+                "border-r-2 border-r-gray-200": step !== mapStep,
                 "text-[#2AC131]": step === mapStep,
+                "border-l-2 rounded-l-md border-l-black": step === mapStep,
+                "border-r-2 border-r-window": step === mapStep,
+                "border-y-2 rounded-l-md border-y-black": step === mapStep,
               })}
             >
               {stepsPicker(mapStep, step)}
@@ -36,7 +40,7 @@ const stepsPicker = (mapStep: number, step: number) => {
     case 1:
       return (
         <div className="flex items-center gap-3">
-          <LayoutTemplate color={step === mapStep ? "#2AC131" : "#CFD4DA"} />
+          <ClipboardType color={step === mapStep ? "#2AC131" : "#CFD4DA"} />
           Step {mapStep}
         </div>
       );

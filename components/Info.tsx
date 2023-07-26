@@ -167,7 +167,7 @@ const Info = () => {
           </div>
 
           <label
-            className="block w-fit p-4 bg-background border border-nureply-blue-full rounded-lg font-semibold text-nureply-blue-full hover:text-nureply-blue transition-colors"
+            className="block w-fit p-4 bg-background border border-black rounded-lg font-semibold text-black-full hover:text-nureply-blue transition-colors"
             htmlFor="image"
           >
             Upload Image
