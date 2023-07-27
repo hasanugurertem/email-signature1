@@ -31,7 +31,7 @@ export default function Home() {
           {step === 1 && <Template />}
           {step === 2 && <Info />}
           {step === 3 && <Customization />}
-
+          
         </main>
   
         <aside className="sticky hidden basis-8/12 h-screen top-8 p-5 xl:block bg-window border-x-2 border-grays-4">

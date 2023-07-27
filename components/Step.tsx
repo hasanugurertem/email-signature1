@@ -1,11 +1,16 @@
+import { useState } from "react"; // Import useState hook
 import { useStepStore } from "@/store/stepStore";
 import clsx from "clsx";
-import { ClipboardType, UserCircle, Wrench } from "lucide-react";
+import { ClipboardType, UserCircle, Wrench,Upload } from "lucide-react";
 
-const steps = [1, 2, 3];
+const steps = [1, 2, 3, 4];
 
 const Step = () => {
   const { step, setStep } = useStepStore();
+
+
+
+
   return (
     <>
       {steps.map((mapStep) => {
@@ -29,13 +34,23 @@ const Step = () => {
           </div>
         );
       })}
+
     </>
   );
 };
 
 export default Step;
 
+import React from 'react';
+
 const stepsPicker = (mapStep: number, step: number) => {
+  const handleFileUpload = () => {
+    const fileInput = document.getElementById('file-input');
+    if (fileInput) {
+      fileInput.click();
+    }
+  };
+
   switch (mapStep) {
     case 1:
       return (
@@ -56,6 +71,18 @@ const stepsPicker = (mapStep: number, step: number) => {
         <div className="flex items-center gap-3">
           <Wrench color={step === mapStep ? "#2AC131" : "#CFD4DA"} />
           Step {mapStep}
+        </div>
+      );
+    case 4:
+      return (
+        <div className="flex items-center gap-3" onClick={handleFileUpload}>
+          <input
+            type="file"
+            id="file-input"
+            style={{ display: 'none' }}
+          />
+          <Upload  />
+          Upload 
         </div>
       );
   }

@@ -5,7 +5,10 @@ import Slider from "./Slider";
 import ColorPicker from "./ColorPicker";
 
 const Customization = () => {
-  const { customizationOutput, setCustomizationOutput, handleChange } =
+  const { 
+    customizationOutput, 
+    setCustomizationOutput,
+    handleChange } =
     useCustomizationStore();
 
   const sliderData = [
@@ -26,7 +29,7 @@ const Customization = () => {
       max: 24,
       value: customizationOutput.iconSize,
       step: 1,
-    
+
     },
     {
       label: "Image Size",
@@ -77,12 +80,12 @@ const Customization = () => {
           ))}
         </div>
         {colorPickerData.map((item) => (
-        <ColorPicker
-          key={item.id}
-          {...item}
-          onChange={handleChange}
-        />
-      ))}
+          <ColorPicker
+            key={item.id}
+            {...item}
+            onChange={handleChange}
+          />
+        ))}
       </div>
     </>
   );

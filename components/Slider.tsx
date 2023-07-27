@@ -40,7 +40,7 @@ const Slider = ({
           max={max}
           value={value}
           step={step}
-          onChange={handleChange}
+          onChange={onChange}
         />
         <output
           className="pb-2 border-b border-background text-default"
