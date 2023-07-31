@@ -1,5 +1,4 @@
 import React from "react";
-
 import useCustomizationStore from "../store/customizationStore";
 
 interface ISlider {
@@ -12,6 +11,7 @@ interface ISlider {
   step: number;
   onChange: (event: React.ChangeEvent<HTMLInputElement>) => void;
 }
+
 const Slider = ({
   label,
   id,
@@ -27,12 +27,15 @@ const Slider = ({
 
   return (
     <>
-      <div>
-        <label className="block mt-2 font-semi-bold text-default" htmlFor={id}>
+      <div className="border-2 border-gray-400 rounded-lg p-1">
+        <label
+          className="block mt-2 font-semi-bold text-default bg-background"
+          htmlFor={id}
+        >
           {label}
         </label>
         <input
-          className="w-full h-2 rounded-lg appearance-none bg-background cursor-pointer"
+          className="w-full h-0 rounded-lg appearance-none bg-background border border-gray-200 cursor-pointer"
           type="range"
           id={id}
           name={name}
@@ -43,12 +46,13 @@ const Slider = ({
           onChange={onChange}
         />
         <output
-          className="pb-2 border-b border-background text-default"
+          className="pb-2 border-b-4 border-background text-default"
           htmlFor={id}
         >
           {value}
         </output>
       </div>
+      <div className="my-10"></div>
     </>
   );
 };

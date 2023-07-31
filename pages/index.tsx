@@ -2,6 +2,7 @@ import Head from "next/head";
 import Customization from "@/components/Customization";
 import Header from "@/components/Header";
 import Info from "@/components/Info";
+import Upload from "@/components/Upload";
 import { Preview } from "@/components/Preview";
 import Step from "@/components/Step";
 import Template from "@/components/Template";
@@ -31,9 +32,10 @@ export default function Home() {
           {step === 1 && <Template />}
           {step === 2 && <Info />}
           {step === 3 && <Customization />}
+          {step === 4 && <Upload />}
           
         </main>
-  
+
         <aside className="sticky hidden basis-8/12 h-screen top-8 p-5 xl:block bg-window border-x-2 border-grays-4">
 
           <div className="p-10">

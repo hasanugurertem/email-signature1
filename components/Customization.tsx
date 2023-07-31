@@ -86,7 +86,7 @@ const Customization = () => {
             onChange={handleChange}
           />
         ))}
-      </div>
+        </div>
     </>
   );
 };

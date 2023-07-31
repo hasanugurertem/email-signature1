@@ -42,6 +42,7 @@ const Step = () => {
 export default Step;
 
 import React from 'react';
+import Description from "./Description";
 
 const stepsPicker = (mapStep: number, step: number) => {
   const handleFileUpload = () => {
@@ -75,8 +76,9 @@ const stepsPicker = (mapStep: number, step: number) => {
       );
     case 4:
       return (
-        <div className="flex items-center gap-3" onClick={handleFileUpload}>
-          <input
+        <div className="flex items-center gap-3" >
+          <div className="m-1 py-1"></div>
+           <input
             type="file"
             id="file-input"
             style={{ display: 'none' }}
@@ -84,6 +86,8 @@ const stepsPicker = (mapStep: number, step: number) => {
           <Upload  />
           Upload 
         </div>
+        
+
       );
   }
 };

@@ -211,6 +211,7 @@ const Info = () => {
               secondary="Add your social media profiles. URLs should start with https://."
             />
           </div>
+
           {inputTextLinkData.map((item) => (
             <InputText
               key={item.id}
@@ -223,7 +224,7 @@ const Info = () => {
               isValidLink={isValidLink(item.value)} 
             />
           ))}
-        
+
       </div>
     </>
   );
