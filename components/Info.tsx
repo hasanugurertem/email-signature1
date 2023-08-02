@@ -2,7 +2,7 @@ import useInfoStore from "../store/infoStore";
 import Heading from "./Heading";
 import Description from "./Description";
 import InputText from "./InputText";
-import { validateEmail } from "../utils/validation"; 
+import { validateEmail } from "../utils/validation";
 
 
 const Info = () => {
@@ -63,7 +63,10 @@ const Info = () => {
       name: "company",
       value: company,
       type: "text",
-    },
+    }
+  ];
+
+  const contactInfo = [
     {
       label: "Work Address",
       id: "workAddress",
@@ -136,15 +139,15 @@ const Info = () => {
 
   return (
     <>
-<div className="m-1">
-        <div className="p-1 border-b border-background">
-    <Heading
-      primary="Your info"
-      secondary="Type in your data to see how it looks on the template"
-    />
-  </div>
+      <div className="m-4">
+        <div className="p-1">
+          <Heading
+            primary="Your info"
+            secondary="Type in your data to see how it looks on the template"
+          />
+        </div>
 
-        <div className="m-4 pb-4 border-b border-background">
+        <div className="m-4 pb-4">
           {signOffData.map((item) => (
             <InputText
               key={item.id}
@@ -156,16 +159,13 @@ const Info = () => {
             />
           ))}
         </div>
-        
-        <div className="my-4 pb-4 border-b border-background">
-          <div className="mx-2 my-1">
-            <Description
-              primary="Add photo"
-              secondary="Pick your best photo (square or round), and click the question mark icon below to see how to add it."
-            />
-          </div>
-          </div>
-
+        <div className="mx-2 my-1">
+          <Description
+            primary="Add photo"
+            secondary="Pick your best photo (square or round), and click the question mark icon below to see how to add it."
+          />
+        </div>
+        <div className="ml-2">
           <label
             className="block w-fit p-4 bg-background border border-black rounded-lg font-semibold text-black-full hover:text-gray-700 transition-colors"
             htmlFor="image"
@@ -181,50 +181,70 @@ const Info = () => {
             onChange={onImageChange}
           />
         </div>
-      
+      </div>
 
-        <div className="my-4 pb-4 border-black border-background">
-          <div className="m-2 py-4">
-            <Description
-              primary="Personal & business info"
-              secondary="Fill in your data. Don't want to use a field? Delete the placeholder text."
-            />
-          </div>
-          {inputTextData.map((item) => (
-            <InputText
-              key={item.id}
-              label={item.label}
-              id={item.id}
-              name={item.name}
-              value={item.value}
-              onChange={handleChange}
-              type={item.type as "text" | "email"}
-              isValidEmail={item.type === "email" ? validateEmail(item.value) : true}
-            />
-          ))}
+
+      <div className="m-4 pb-4">
+        <div className="m-2 py-4">
+          <Description
+            primary="Personal & business info"
+            secondary="Fill in your data. Don't want to use a field? Delete the placeholder text."
+          />
         </div>
+        {inputTextData.map((item) => (
+          <InputText
+            key={item.id}
+            label={item.label}
+            id={item.id}
+            name={item.name}
+            value={item.value}
+            onChange={handleChange}
+            type={item.type as "text" | "email"}
+            isValidEmail={item.type === "email" ? validateEmail(item.value) : true}
+          />
+        ))}
+      </div>
 
-        <div className="my-4 pb-4 border-b border-background">
-          <div className="m-2 py-4">
-            <Description
-              primary="Social media links"
-              secondary="Add your social media profiles. URLs should start with https://."
-            />
-          </div>
+      <div className="m-4 pb-4">
+        <div className="m-2 py-4">
+          <Description
+            primary="Contact info"
+            secondary="Type in your contact information."
+          />
+        </div>
+        {contactInfo.map((item) => (
+          <InputText
+            key={item.id}
+            label={item.label}
+            id={item.id}
+            name={item.name}
+            value={item.value}
+            onChange={handleChange}
+            type="link"
+            isValidLink={isValidLink(item.value)}
+          />
+        ))}
+      </div>
 
-          {inputTextLinkData.map((item) => (
-            <InputText
-              key={item.id}
-              label={item.label}
-              id={item.id}
-              name={item.name}
-              value={item.value}
-              onChange={handleChange}
-              type="link"
-              isValidLink={isValidLink(item.value)} 
-            />
-          ))}
-
+      <div className="m-4 pb-4">
+        <div className="m-2 py-4">
+          <Description
+            primary="Social media links"
+            secondary="Add your social media profiles. URLs should start with https://."
+          />
+        </div>
+        {inputTextLinkData.map((item) => (
+          <InputText
+            key={item.id}
+            label={item.label}
+            id={item.id}
+            name={item.name}
+            value={item.value}
+            onChange={handleChange}
+            type="link"
+            isValidLink={isValidLink(item.value)}
+          />
+        ))}
       </div>
     </>
   );

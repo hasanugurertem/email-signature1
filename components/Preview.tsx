@@ -5,6 +5,7 @@ import { cn } from "@/utils/cn";
 import { VariantProps, cva } from "class-variance-authority";
 import { Github, Instagram, Linkedin, Twitter, Youtube } from "lucide-react";
 import Image from "next/image";
+import profile from "../public/initialIcon.png";
 
 const previewVariants = cva(`m-5 gap-0.1 flex`, {
   variants: {
@@ -106,7 +107,7 @@ const Preview = ({
 
   return (
     <div className="w-full rounded-lg bg-gray border border-solid border-gray-500">
-      <div className="w-full h-10 rounded-lg bg-gray-300 flex gap-3">
+      <div className="w-full h-10 bg-gray-300 flex gap-3">
         <div className="w-3 h-3 rounded-full bg-[#FD4646] ml-3 mt-2"></div>
         <div className="w-3 h-3 rounded-full bg-[#FEB024] mt-2"></div>
         <div className="w-3 h-3 rounded-full bg-[#2AC131] mt-2"></div>
@@ -128,7 +129,7 @@ const Preview = ({
         <div className={`${cn(previewVariants({ profileIcon }))}`}>
           <div className=" rounded-full mt-5">
             <Image
-              src={image}
+              src={profile}
               alt="Profile Image"
               width={imageSize}
               height={imageSize}

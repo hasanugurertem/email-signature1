@@ -35,8 +35,7 @@ const Input = ({
           {label}
         </label>
         <input
-  className={clsx("p-2 rounded text-input border: 1px border solid w-3/4", {
-    "border": (type === "email", "website", "Phone Number" || type === "link") && value.length > 0,
+  className={clsx("p-2 rounded text-input border: 1px border-black border solid w-3/4", {
     "border-valid": isValid && value.length > 0,
   })}
   type={type}

@@ -26,7 +26,7 @@ export default function Home() {
       <div className="flex w-full py-10 bg-background">
         <aside className="sticky hidden basis-1/12 h-screen top-8 lg:block bg-window border-x-2 border-grays-4">
           {/* Left column area */}
-          <div className="grid justify-items-end" style={{ marginTop: "75px" }}>
+          <div className="grid justify-items-end">
   <Step />
 </div>
         </aside>
@@ -34,11 +34,11 @@ export default function Home() {
           {step === 1 && <Template />}
           {step === 2 && <Info />}
           {step === 3 && <Customization />}
-          {step === 4 && <Upload />}
+          {step === 6 && <Upload />}
           
         </main>
 
-        <aside className="sticky hidden basis-7/12 h-screen top-8 p-5 xl:block bg-window border-x-2 border-grays-4">
+        <aside className="sticky hidden basis-7/12 h-full top-8 p-5 xl:block bg-window border-x-2 border-grays-4">
 
           <div className="p-10">
             <Preview

@@ -1,15 +1,12 @@
 import { useState } from "react"; // Import useState hook
 import { useStepStore } from "@/store/stepStore";
 import clsx from "clsx";
-import { ClipboardType, UserCircle, Wrench, Upload } from "lucide-react";
+import { ClipboardType, UserCircle, Pencil, Upload } from "lucide-react";
 
-const steps = [1, 2, 3, 4];
+const steps = [1, 2, 3, 4, 5, 6];
 
 const Step = () => {
   const { step, setStep } = useStepStore();
-
-
-
 
   return (
     <>
@@ -17,12 +14,12 @@ const Step = () => {
         return (
           <div
             key={mapStep}
-            className="ml-10 bg-window -mr-[2px] my-8 w 2/5 text-[#CFD4DA]"
+            className="ml-10 w-1/2 bg-window -mr-[2px] my-8 text-[#CFD4DA]"
             onClick={() => setStep(mapStep)}
           >
             <div
-              className={clsx("flex items-center py-3 pl-2 ", {
-                "border-r-2 border-r-white": step !== mapStep,
+              className={clsx("flex justify-center py-3 pl-2 ", {
+                "border-r-2 border-r-gray-200": step !== mapStep,
                 "text-[#2AC131]": step === mapStep,
                 "border-l-2 rounded-l-md border-l-gray-400": step === mapStep,
                 "border-r-2 border-r-window ": step === mapStep,
@@ -42,44 +39,44 @@ const Step = () => {
 export default Step;
 
 import React from 'react';
-import Description from "./Description";
 
 const stepsPicker = (mapStep: number, step: number) => {
-  const handleFileUpload = () => {
-    const fileInput = document.getElementById('file-input');
-    if (fileInput) {
-      fileInput.click();
-    }
-  };
 
   switch (mapStep) {
     case 1:
       return (
-        <div className="flex items-center gap-3">
+        <div className="items-center gap-3">
           <ClipboardType color={step === mapStep ? "#2AC131" : "#CFD4DA"} />
-          Step {mapStep}
+          <div className="text-sm">
+            Step {mapStep}
+          </div>
         </div>
       );
     case 2:
       return (
-        <div className="flex items-center gap-3">
+        <div className="items-center gap-3">
           <UserCircle color={step === mapStep ? "#2AC131" : "#CFD4DA"} />
-          <p className=""> Step {mapStep}</p>
+          <div className="text-sm">
+            Step {mapStep}
+          </div>
         </div>
       );
     case 3:
       return (
-        <div className="flex items-center gap-3">
-          <Wrench color={step === mapStep ? "#2AC131" : "#CFD4DA"} />
-          Step {mapStep}
+        <div className="items-center gap-3">
+          <Pencil color={step === mapStep ? "#2AC131" : "#CFD4DA"} />
+          <div className="text-sm">
+            Step {mapStep}
+          </div>
         </div>
       );
-    case 4:
+    case 6:
       return (
-        <div className="flex items-center gap-3" >
-          
-          <Upload />
-          Upload
+        <div className="items-center gap-3" >
+          <Upload color={step === mapStep ? "#2AC131" : "#CFD4DA"} />
+          <div className="text-sm">
+            Upload
+          </div>
         </div>
 
       );
