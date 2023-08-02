@@ -14,15 +14,19 @@ const Info = () => {
         <>
             <div className="m-6">
                 <h1 className="text-3xl font-bold mb-4">Upload email signature HTML</h1>
-                <h1 className="text-l mb-4">Upload the HTML code you generated the last time you were here.</h1>
+               
+                <h1 className="text-lg mb-4">Upload the HTML code you generated the last time you were here.</h1>
+                <br />
 
                 <label
-  className="block p-4 bg-black border border-black rounded-lg font-semibold text-white hover:text-gray-700 transition-colors"
-  htmlFor="image"
-  style={{ width: "200px" }} // Burada butonun genişliğini istediğiniz gibi ayarlayabilirsiniz
+
+ className="block p-4 bg-black border border-black rounded-lg font-semibold text-white hover:text-gray-700 transition-colors"
+ htmlFor="image"
+ style={{ width: "200px", display: "flex", justifyContent: "center", alignItems: "center" }}
 >
-  Choose File
+ CHOOSE FILE
 </label>
+
 
                 <input
                     className="hidden"
@@ -32,6 +36,7 @@ const Info = () => {
                     accept="image/*"
                     onChange={onImageChange}
                 />
+                <br />
 <p class="text-gray-600">*Be sure to add it in a .html file. This option isn't available for the plain text template</p>
 
 

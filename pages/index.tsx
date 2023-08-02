@@ -24,11 +24,13 @@ export default function Home() {
       </div>
 
       <div className="flex w-full py-10 bg-background">
-        <aside className="sticky hidden basis-3/12 h-screen top-8 lg:block bg-window border-x-2 border-grays-4">
+        <aside className="sticky hidden basis-1/12 h-screen top-8 lg:block bg-window border-x-2 border-grays-4">
           {/* Left column area */}
-          <div className="grid justify-items-end"> <Step /></div>
+          <div className="grid justify-items-end" style={{ marginTop: "75px" }}>
+  <Step />
+</div>
         </aside>
-        <main className=" basis-5/12 bg-window overflow-y-auto max-h-screen">
+        <main className=" basis-4/12 bg-window overflow-y-auto max-h-screen">
           {step === 1 && <Template />}
           {step === 2 && <Info />}
           {step === 3 && <Customization />}
@@ -36,7 +38,7 @@ export default function Home() {
           
         </main>
 
-        <aside className="sticky hidden basis-8/12 h-screen top-8 p-5 xl:block bg-window border-x-2 border-grays-4">
+        <aside className="sticky hidden basis-7/12 h-screen top-8 p-5 xl:block bg-window border-x-2 border-grays-4">
 
           <div className="p-10">
             <Preview

@@ -167,7 +167,7 @@ const Info = () => {
           </div>
 
           <label
-            className="block w-fit p-4 bg-background border border-black rounded-lg font-semibold text-black-full hover:text-nureply-blue transition-colors"
+            className="block w-fit p-4 bg-background border border-black rounded-lg font-semibold text-black-full hover:text-gray-700 transition-colors"
             htmlFor="image"
           >
             Upload Image
@@ -183,7 +183,7 @@ const Info = () => {
         </div>
       
 
-        <div className="my-4 pb-4 border-b border-background">
+        <div className="my-4 pb-4 border-black border-background">
           <div className="m-2 py-4">
             <Description
               primary="Personal & business info"

@@ -24,22 +24,34 @@ const ColorPicker = ({ label, id, name, onChange }: IColorPicker) => {
 
   return (
     <>
-      <div className="m-2" style={{ backgroundColor: "white", position: "relative" }}>
-        <label className="block pb-2 font-semibold text-default" htmlFor={id} style={{ fontFamily: "inherit" }}>
-          {label}
-        </label>
-        <input
-          style={{ border: "2px solid black", borderRadius: "20px", display: "flex", justifyContent: "center", alignItems: "center" }}
-          className="w-[40px] h-[40px] p-4 border-4 border-nureply-blue-full rounded-lg overflow-hidden"
-          type="color"
-          id={id}
-          name={name}
-          value={color}
-          onChange={onColorChange}
-        />
-      </div>
-      <div className="m-2" style={{ backgroundColor: color, width: "40px", height: "40px", borderRadius: "20px" }}></div>
-      <p> {color}</p>
+<div className="m-2" style={{ backgroundColor: "white", position: "relative" }}>
+  <label className="block pb-2 font-semibold text-default" htmlFor={id} style={{ fontFamily: "inherit" }}>
+    {label}
+  </label>
+  
+  <div style={{ display: "flex", alignItems: "center" }}>
+    <div style={{ border: "2px solid #CBD5E0", borderRadius: "20px", width: "40px", height: "40px", display: "flex", justifyContent: "center", alignItems: "center" }}>
+      <input
+        style={{ opacity: 0, position: "absolute", top: 0, left: 0, width: "100%", height: "100%" }}
+        type="color"
+        id={id}
+        name={name}
+        value={color}
+        onChange={onColorChange}
+      />
+      <div style={{ backgroundColor: color, borderRadius: "50%", width: "80%", height: "80%" }}></div>
+    </div>
+
+    <div style={{ border: "2px solid #CBD5E0", borderRadius: "5px", width: "350px", height: "50px", display: "flex", justifyContent: "center", alignItems: "center", marginLeft: "10px" }}>
+      <p>{color}</p>
+    </div>
+  </div>
+</div>
+
+
+
+  
+
     </>
     
   );
