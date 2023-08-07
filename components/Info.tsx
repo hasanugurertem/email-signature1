@@ -25,7 +25,6 @@ const Info = () => {
     workEmail,
     website,
     LinkedInLink,
-    GitHubLink,
     YouTubeLink,
     TwitterLink,
     FacebookLink,
@@ -106,12 +105,6 @@ const Info = () => {
       value: LinkedInLink,
     },
     {
-      label: "GitHub",
-      id: "GitHubLink",
-      name: "GitHubLink",
-      value: GitHubLink,
-    },
-    {
       label: "YouTube",
       id: "YouTubeLink",
       name: "YouTubeLink",
@@ -165,22 +158,13 @@ const Info = () => {
             secondary="Pick your best photo (square or round), and click the question mark icon below to see how to add it."
           />
         </div>
-        <div className="ml-2">
-          <label
-            className="block w-fit p-4 bg-background border border-black rounded-lg font-semibold text-black-full hover:text-gray-700 transition-colors"
-            htmlFor="image"
-          >
-            Upload Image
-          </label>
-          <input
-            className="hidden"
-            type="file"
-            id="image"
-            name="image"
-            accept="image/*"
-            onChange={onImageChange}
-          />
-        </div>
+        <div className="m-4 pb-4 block font-semibold text-default">
+      <p1>Photo URL</p1> <br />
+      <input
+        className="pb-2 rounded text-input border: 1px  border-black border solid w-3/4 border-valid"
+        placeholder="https://images2.imgbox.com/5f/1f/VN22yobl_o.png"
+      />
+    </div>
       </div>
 
 

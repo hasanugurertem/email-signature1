@@ -4,7 +4,6 @@ import { SetStateAction, useState } from "react";
 import Image from "next/image";
 
 import iconLinkedIn from "../assets/iconLinkedIn.ico";
-import iconGitHub from "../assets/iconGitHub.ico";
 import iconTwitter from "../assets/iconTwitter.ico";
 
 import { Inter } from "next/font/google";
@@ -18,7 +17,6 @@ export default function Home() {
   const [email, setEmail] = useState("");
   const [link, setLink] = useState("");
   const [linkLinkedIn, setLinkLinkedIn] = useState("");
-  const [linkGitHub, setLinkGitHub] = useState("");
   const [linkTwitter, setLinkTwitter] = useState("");
 
   const [photo, setPhoto] = useState("");
@@ -210,20 +208,6 @@ export default function Home() {
             value={linkLinkedIn}
           />
           <label
-            htmlFor="link-GitHub"
-            className="p-1 text-base text-nureply-blue font-semibold"
-          >
-            GitHub
-          </label>
-          <input
-            className="text-black border-2"
-            type="text"
-            id="link-GitHub"
-            name="link-GitHub"
-            onChange={(linkGitHub) => setLinkGitHub(linkGitHub.target.value)}
-            value={linkGitHub}
-          />
-          <label
             htmlFor="link-Twitter"
             className="p-1 text-base text-nureply-blue font-semibold"
           >
@@ -238,7 +222,7 @@ export default function Home() {
             value={linkTwitter}
           />
         </div>
-        workEmail: '', website: '', signOff: '', LinkedInLink: '', GitHubLink:
+        workEmail: '', website: '', signOff: '', LinkedInLink: '':
         '', ArtStationLink: '', YoutubeLink: '', TwitterLink: '', FacebookLink:
         '', InstagramLink: '',
         <div>
@@ -308,11 +292,6 @@ export default function Home() {
                 </a>
               </div>
               <div className="pr-3">
-                <a href={linkGitHub}>
-                  <Image src={iconGitHub} width={30} height={30} alt="" />
-                </a>
-              </div>
-              <div className="pr-3">
                 <a href={linkTwitter}>
                   <Image src={iconTwitter} width={30} height={30} alt="" />
                 </a>
@@ -348,11 +327,6 @@ export default function Home() {
             <div>
               <a href={linkLinkedIn}>
                 <Image src={iconLinkedIn} width={30} height={30} alt="" />
-              </a>
-            </div>
-            <div className="pt-2">
-              <a href={linkGitHub}>
-                <Image src={iconGitHub} width={30} height={30} alt="" />
               </a>
             </div>
             <div className="pt-2">

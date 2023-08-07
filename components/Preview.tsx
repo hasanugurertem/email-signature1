@@ -3,9 +3,10 @@ import useInfoStore from "@/store/infoStore";
 import { useTemplateStore } from "@/store/templateStore";
 import { cn } from "@/utils/cn";
 import { VariantProps, cva } from "class-variance-authority";
-import { Github, Instagram, Linkedin, Twitter, Youtube } from "lucide-react";
+import { Instagram, Linkedin, Twitter, Youtube } from "lucide-react";
 import Image from "next/image";
 import profile from "../public/initialIcon.png";
+
 
 const previewVariants = cva(`m-5 gap-0.1 flex`, {
   variants: {
@@ -88,7 +89,6 @@ const Preview = ({
   let workEmail = infoOutput.workEmail;
   let website = infoOutput.website;
   let LinkedInLink = infoOutput.LinkedInLink;
-  let GitHubLink = infoOutput.GitHubLink;
   // let ArtStataionLink = infoOutput.ArtStationLink;
   let YouTubeLink = infoOutput.YouTubeLink;
   let TwitterLink = infoOutput.TwitterLink;
@@ -106,8 +106,8 @@ const Preview = ({
   let linkColor = customizationOutput.linkColor;
 
   return (
-    <div className="w-full rounded-lg bg-gray border border-solid border-gray-500">
-      <div className="w-full h-10 bg-gray-300 flex gap-3">
+<div className="w-full rounded-lg bg-gray border border-solid border-gray-300" style={{ borderRadius: 0 }}>
+      <div className="w-full h-10 bg-gray-200 flex gap-3">
         <div className="w-3 h-3 rounded-full bg-[#FD4646] ml-3 mt-2"></div>
         <div className="w-3 h-3 rounded-full bg-[#FEB024] mt-2"></div>
         <div className="w-3 h-3 rounded-full bg-[#2AC131] mt-2"></div>
@@ -166,11 +166,6 @@ const Preview = ({
           {LinkedInLink && (
             <a href={LinkedInLink} target="_blank" rel="noopener noreferrer">
               <Linkedin size={iconSize} />
-            </a>
-          )}
-          {GitHubLink && (
-            <a href={GitHubLink} target="_blank" rel="noopener noreferrer">
-              <Github size={iconSize} />
             </a>
           )}
           {YouTubeLink && (

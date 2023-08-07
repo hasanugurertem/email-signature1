@@ -67,7 +67,7 @@ const Customization = () => {
   return (
     <>
       <div className="m-8">
-        <div className="w-full p-4 decoration-none border-b border-background">
+        <div className="w-full p-4 decoration-none  border-background">
           <Heading
             primary="STYLE"
             secondary="Pick the style of your email signature"

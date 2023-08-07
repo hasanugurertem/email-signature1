@@ -1,20 +1,9 @@
+import React from "react";
 import clsx from "clsx";
-import React, { Dispatch, SetStateAction } from "react";
 import { useTemplateStore } from "@/store/templateStore";
 import { AlignJustify, UserCircle } from "lucide-react";
 
-const templateData: {
-  label: string;
-  id:
-    | "plainText"
-    | "template1Left"
-    | "template1Right"
-    | "template2Left"
-    | "template2Right"
-    | "template3Top"
-    | "template3Bottom"
-    | "initial";
-}[] = [
+const templateData = [
   {
     label: "Plain Text",
     id: "plainText",
@@ -45,59 +34,25 @@ const templateData: {
   },
 ];
 
-const Template = () => {
-  const { template, setTemplate } = useTemplateStore();
+function Icons() {
+  const numbers = [1, 2, 3, 4];
 
   return (
-    <>
-      {templateData.map((item) => (
-        <div
-          key={item.id}
-          onClick={() => {
-            setTemplate(item.id);
-          }}
-          className={clsx(
-            "bg-gray-200 mt-10 rounded-lg text-center w-2/3 mx-auto cursor-pointer text-sm flex-auto border-2 border-gray-700",
-            {
-              "shadow-[0_0px_0px_3px_rgba(73,80,87,1)] font-semibold":
-                item.id === template.id,
-            }
-          )}
-        >
-          {item.label}
-          <div className="bg-window rounded-lg p-5 border-t-2 border-gray-700">
-            {templatePicker(item.label)}
-          </div>
-        </div>
+    <div className="flex mt-5 gap-3 px-3">
+      {numbers.map((item) => (
+        <div key={item} className="w-4 h-4 bg-gray-500 rounded-full"></div>
       ))}
-    </>
+    </div>
   );
-};
+}
 
-const templatePicker = (type: string) => {
+function templatePicker(type) {
   switch (type) {
     case "Plain Text":
       return (
         <div className="flex">
           <AlignJustify size={96} color="#CFD4DA" />
           <AlignJustify size={96} color="#CFD4DA" />
-         
-        </div>
-      );
-
-    case "Template 1 Right":
-      return (
-        <div className="flex justify-around p-5 pl-10 align-center">
-          <div>
-            <div className="flex">
-              <AlignJustify size={96} color="#CFD4DA" />
-              <AlignJustify size={96} color="#CFD4DA" />
-            </div>
-            <Icons />
-          </div>
-          <div className="flex justify-center mt-5 mr-5">
-            <UserCircle size={60} color="#CFD4DA" />
-          </div>
         </div>
       );
     case "Template 1 Left":
@@ -112,6 +67,21 @@ const templatePicker = (type: string) => {
               <AlignJustify size={96} color="#CFD4DA" />
             </div>
             <Icons />
+          </div>
+        </div>
+      );
+    case "Template 1 Right":
+      return (
+        <div className="flex justify-around p-5 pl-10 align-center">
+          <div>
+            <div className="flex">
+              <AlignJustify size={96} color="#CFD4DA" />
+              <AlignJustify size={96} color="#CFD4DA" />
+            </div>
+            <Icons />
+          </div>
+          <div className="flex justify-center mt-5 mr-5">
+            <UserCircle size={60} color="#CFD4DA" />
           </div>
         </div>
       );
@@ -174,18 +144,42 @@ const templatePicker = (type: string) => {
     default:
       return null;
   }
-};
+}
 
-function Icons() {
-  const numbers = [1, 2, 3, 4];
+const Template = () => {
+  const { template, setTemplate } = useTemplateStore();
 
   return (
-    <div className="flex mt-5 gap-3 px-3">
-      {numbers.map((item) => (
-        <div key={item} className="w-4 h-4 bg-gray-500 rounded-full"></div>
+    <div>
+      <h1 className="text-3xl font-bold m-4 p-1">Templates</h1>
+      <p className="m-4 p-2">Choose a template to start building your email signature</p>
+      {templateData.map((item) => (
+        <div
+          key={item.id}
+          onClick={() => {
+            setTemplate(item.id);
+          }}
+          className={clsx(
+            "bg-gray-200 mt-10 rounded-lg text-center w-2/3 mx-auto cursor-pointer text-sm flex-auto border-2 border-gray-700",
+            {
+              "shadow-[0_0px_0px_3px_rgba(73,80,87,1)] font-semibold":
+                item.id === template.id,
+            }
+          )}
+        >
+          {item.label}
+          <div className="bg-window rounded-lg p-5 border-t-2 border-gray-700">
+            {templatePicker(item.label)}
+            {item.id === "plainText" && (
+              <div className="border border-gray-500">
+                <p className="text-gray-400">Use this template to recover your sender reputation</p>
+              </div>
+            )}
+          </div>
+        </div>
       ))}
     </div>
   );
-}
+};
 
 export default Template;

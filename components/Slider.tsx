@@ -27,7 +27,7 @@ const Slider = ({
 
   return (
     <>
-      <div className="border-2 border-gray-400 rounded-lg p-1">
+      <div className="border-2 border-gray-400 rounded-lg p-2">
         <label
           className="block mt-2 font-semi-bold text-default bg-background"
           htmlFor={id}
