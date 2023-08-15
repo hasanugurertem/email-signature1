@@ -3,15 +3,10 @@ import useCustomizationStore from "../store/customizationStore";
 
 const FontChanger = () => {
   const fonts = [
-    "",
-    "Quicksand",
-    "Roboto",
-    "Poppins",
-    "Open Sans",
+    "Helvetica",
     "Verdana",
     "Georgia",
     "Arial",
-    "Courier New",
     "Times New Roman",
   ];
 

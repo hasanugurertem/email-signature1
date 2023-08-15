@@ -160,7 +160,7 @@ const Template = () => {
             setTemplate(item.id);
           }}
           className={clsx(
-            "bg-gray-200 mt-10 rounded-lg text-center w-2/3 mx-auto cursor-pointer text-sm flex-auto border-2 border-gray-700",
+            "bg-gray-200 mt-10 rounded-lg text-center w-3/4 mx-auto cursor-pointer text-sm flex-auto border-2 border-gray-700",
             {
               "shadow-[0_0px_0px_3px_rgba(73,80,87,1)] font-semibold":
                 item.id === template.id,
@@ -168,7 +168,7 @@ const Template = () => {
           )}
         >
           {item.label}
-          <div className="bg-window rounded-lg p-5 border-t-2 border-gray-700">
+          <div className="bg-window rounded-lg p-3 border-t-2 border-gray-700">
             {templatePicker(item.label)}
             {item.id === "plainText" && (
               <div className="border border-gray-500">

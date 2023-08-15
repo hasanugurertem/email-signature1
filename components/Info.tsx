@@ -1,21 +1,87 @@
+import React from "react";
 import useInfoStore from "../store/infoStore";
 import Heading from "./Heading";
-import Description from "./Description";
 import InputText from "./InputText";
-import { validateEmail } from "../utils/validation";
 
+const signOffOptions = [
+  { value: "", label: "Select a sign-off" },
+  { value: "Regards,", label: "Regards," },
+  { value: "Best regards,", label: "Best regards," },
+  { value: "Kind regards,", label: "Kind regards," },
+];
+const inputTextData = [
+  {
+    label: "Full Name",
+    id: "fullName",
+    name: "fullName",
+    type: "text",
+  },
+  {
+    label: "Job Title",
+    id: "jobTitle",
+    name: "jobTitle",
+    type: "text",
+  },
+  {
+    label: "Company",
+    id: "company",
+    name: "company",
+    type: "text",
+  },
+  {
+    label: "Work Address",
+    id: "workAddress",
+    name: "workAddress",
+    type: "text",
+  },
+  {
+    label: "Phone Number",
+    id: "phoneNumber",
+    name: "phoneNumber",
+    type: "text",
+  },
+  {
+    label: "Work Email",
+    id: "workEmail",
+    name: "workEmail",
+    type: "email",
+  },
+  {
+    label: "Website",
+    id: "website",
+    name: "website",
+  },
+];
+const inputTextLinkData = [
+  {
+    label: "LinkedIn",
+    id: "LinkedInLink",
+    name: "LinkedInLink",
+  },
+  {
+    label: "YouTube",
+    id: "YouTubeLink",
+    name: "YouTubeLink",
+  },
+  {
+    label: "Twitter",
+    id: "TwitterLink",
+    name: "TwitterLink",
+  },
+  {
+    label: "Facebook",
+    id: "FacebookLink",
+    name: "FacebookLink",
+  },
+  {
+    label: "Instagram",
+    id: "InstagramLink",
+    name: "InstagramLink",
+  },
+];
 
 const Info = () => {
   const {
-    infoOutput,
-    setInfoOutput,
-    handleChange,
-    onImageChange,
-    isValidLink,
-  } = useInfoStore();
-
-  const {
-    textInput,
     signOff,
     fullName,
     jobTitle,
@@ -29,208 +95,127 @@ const Info = () => {
     TwitterLink,
     FacebookLink,
     InstagramLink,
-    image,
-  } = infoOutput;
-
-  const signOffData = [
-    {
-      label: "Sign-off",
-      id: "signOff",
-      name: "signOff",
-      value: signOff,
-    },
-  ];
-
-  const inputTextData = [
-    {
-      label: "Full Name",
-      id: "fullName",
-      name: "fullName",
-      value: fullName,
-      type: "text",
-    },
-    {
-      label: "Job Title",
-      id: "jobTitle",
-      name: "jobTitle",
-      value: jobTitle,
-      type: "text",
-    },
-    {
-      label: "Company",
-      id: "company",
-      name: "company",
-      value: company,
-      type: "text",
-    }
-  ];
-
-  const contactInfo = [
-    {
-      label: "Work Address",
-      id: "workAddress",
-      name: "workAddress",
-      value: workAddress,
-      type: "text",
-    },
-    {
-      label: "Phone Number",
-      id: "phoneNumber",
-      name: "phoneNumber",
-      value: phoneNumber,
-      type: "text",
-    },
-    {
-      label: "Work Email",
-      id: "workEmail",
-      name: "workEmail",
-      value: workEmail,
-      type: "email",
-      isValidEmail: validateEmail(workEmail),
-    },
-    {
-      label: "Website",
-      id: "website",
-      name: "website",
-      value: website,
-      type: "text",
-    },
-  ];
-
-  const inputTextLinkData = [
-    {
-      label: "LinkedIn",
-      id: "LinkedInLink",
-      name: "LinkedInLink",
-      value: LinkedInLink,
-    },
-    {
-      label: "YouTube",
-      id: "YouTubeLink",
-      name: "YouTubeLink",
-      value: YouTubeLink,
-    },
-    {
-      label: "Twitter",
-      id: "TwitterLink",
-      name: "TwitterLink",
-      value: TwitterLink,
-    },
-    {
-      label: "Facebook",
-      id: "FacebookLink",
-      name: "FacebookLink",
-      value: FacebookLink,
-    },
-    {
-      label: "Instagram",
-      id: "InstagramLink",
-      name: "InstagramLink",
-      value: InstagramLink,
-    },
-  ];
+    handleChange,
+    onImageChange,
+  } = useInfoStore();
 
   return (
-    <>
-      <div className="m-4">
-        <div className="p-1">
+    <div className="m-8">
+      <div className="p-4 border-b border-background">
+        <Heading
+          primary="Your info"
+          secondary="Type in your data to see how it looks on the template"
+        />
+      </div>
+      <div className="my-4 pb-4 border-b border-background">
+        <div className="mx-2 my-4">
           <Heading
-            primary="Your info"
-            secondary="Type in your data to see how it looks on the template"
+            type="Description"
+            primary="Add a photo"
+            secondary="Pick your best photo (square or round), and click the question mark icon below to see how to add it."
           />
         </div>
 
-        <div className="m-4 pb-4">
-          {signOffData.map((item) => (
+        <div className="flex items-center justify-center">
+          <input
+            className="w-full my-2 p-2 rounded border-2 border-highlight text-input focus:outline-none"
+            type="text"
+            value={"https://images2.imgbox.com/5f/1f/VN22yobl_o.png"}
+          />
+        </div>
+
+        <div className="m-4 pb-4 border-b border-background">
+          <Heading
+            type="Description"
+            primary="Add your email sign-off"
+          />
+          <select
+            className="block w-full py-2 pl-2 pr-8 rounded-md border-2 border-highlight focus:outline-none text-fade"
+            name="signOff"
+            onChange={handleChange}
+            value={signOff}
+          >
+            {signOffOptions.map(({ value, label }) => (
+              <option key={value} value={value}>
+                {label}
+              </option>
+            ))}
+          </select>
+        </div>
+
+
+        <div className="my-4 pb-4 border-b border-background">
+          <div className="m-2 py-4">
+            <Heading
+              type="Description"
+              primary="Personal & business info"
+              secondary="Fill in your data. Don't want to use a field? Delete the placeholder text."
+            />
+          </div>
+          {inputTextData.map((item) => (
             <InputText
               key={item.id}
               label={item.label}
               id={item.id}
               name={item.name}
-              value={item.value}
+              value={
+                item.name === "fullName"
+                  ? fullName
+                  : item.name === "jobTitle"
+                    ? jobTitle
+                    : item.name === "company"
+                      ? company
+                      : item.name === "workAddress"
+                        ? workAddress
+                        : item.name === "phoneNumber"
+                          ? phoneNumber
+                          : item.name === "workEmail"
+                            ? workEmail
+                            : item.name === "website"
+                              ? website
+                              : ""
+              }
               onChange={handleChange}
+              type={item.type as "text" | "email"}
             />
           ))}
         </div>
-        <div className="mx-2 my-1">
-          <Description
-            primary="Add photo"
-            secondary="Pick your best photo (square or round), and click the question mark icon below to see how to add it."
-          />
+
+        <div className="my-4 pb-4 border-b border-background">
+          <div className="m-2 py-4">
+            <Heading
+              type="Description"
+              primary="Social media links"
+              secondary="Add your social media profiles. URLs should start with https://."
+            />
+          </div>
+          {inputTextLinkData.map((item) => (
+            <InputText
+              key={item.id}
+              label={item.label}
+              id={item.id}
+              name={item.name}
+              value={
+                item.name === "LinkedInLink"
+                  ? LinkedInLink
+                  : item.name === "YouTubeLink"
+                    ? YouTubeLink
+                    : item.name === "TwitterLink"
+                      ? TwitterLink
+                      : item.name === "FacebookLink"
+                        ? FacebookLink
+                        : item.name === "InstagramLink"
+                          ? InstagramLink
+                          : ""
+              }
+              onChange={handleChange}
+              type="link"
+            />
+          ))}
         </div>
-        <div className="m-4 pb-4 block font-semibold text-default">
-      <p1>Photo URL</p1> <br />
-      <input
-        className="pb-2 rounded text-input border: 1px  border-black border solid w-3/4 border-valid"
-        placeholder="https://images2.imgbox.com/5f/1f/VN22yobl_o.png"
-      />
+
+      </div>
     </div>
-      </div>
-
-
-      <div className="m-4 pb-4">
-        <div className="m-2 py-4">
-          <Description
-            primary="Personal & business info"
-            secondary="Fill in your data. Don't want to use a field? Delete the placeholder text."
-          />
-        </div>
-        {inputTextData.map((item) => (
-          <InputText
-            key={item.id}
-            label={item.label}
-            id={item.id}
-            name={item.name}
-            value={item.value}
-            onChange={handleChange}
-            type={item.type as "text" | "email"}
-            isValidEmail={item.type === "email" ? validateEmail(item.value) : true}
-          />
-        ))}
-      </div>
-
-      <div className="m-4 pb-4">
-        <div className="m-2 py-4">
-          <Description
-            primary="Contact info"
-            secondary="Type in your contact information."
-          />
-        </div>
-        {contactInfo.map((item) => (
-          <InputText
-            key={item.id}
-            label={item.label}
-            id={item.id}
-            name={item.name}
-            value={item.value}
-            onChange={handleChange}
-            type="link"
-            isValidLink={isValidLink(item.value)}
-          />
-        ))}
-      </div>
-
-      <div className="m-4 pb-4">
-        <div className="m-2 py-4">
-          <Description
-            primary="Social media links"
-            secondary="Add your social media profiles. URLs should start with https://."
-          />
-        </div>
-        {inputTextLinkData.map((item) => (
-          <InputText
-            key={item.id}
-            label={item.label}
-            id={item.id}
-            name={item.name}
-            value={item.value}
-            onChange={handleChange}
-            type="link"
-            isValidLink={isValidLink(item.value)}
-          />
-        ))}
-      </div>
-    </>
   );
 };
 

@@ -12,16 +12,16 @@ module.exports = {
         "nureply-blue": "rgba(59,130,246,.5)",
         "nureply-blue-tint": "rgba(59,130,246,.25)",
 
-        valid: "black ", // green-500
-        invalid: "#EF4444  ", 
+        valid: "#10B981", // green-500
+        invalid: "#EF4444", // red-500
 
-        background: "F8F9FA", // gray-100
+        background: "#F8F9FA", // gray-100
         window: "rgb(255, 255, 255)",
 
-        default: "343A40", // gray-900
+        default: "#343A40", // gray-900
+        fade: "#868E96", // gray-700
         highlight: "#CFD4DA", // gray-500
         input: "rgb(0, 0, 0)",
-
 
         gray: {
           100: "#F8F9FA",

@@ -1,92 +1,133 @@
 import useCustomizationStore from "../store/customizationStore";
-
 import Heading from "./Heading";
+import FontChanger from "./FontChanger";
 import Slider from "./Slider";
 import ColorPicker from "./ColorPicker";
 
+const sliderData = [
+  {
+    label: "Font Size",
+    id: "fontSize",
+    name: "fontSize",
+    min: 12,
+    max: 16,
+    step: 1,
+  },
+  {
+    label: "Icon Size",
+    id: "iconSize",
+    name: "iconSize",
+    min: 16,
+    max: 24,
+    step: 1,
+  },
+  {
+    label: "Photo size",
+    id: "imageSize",
+    name: "imageSize",
+    min: 120,
+    max: 240,
+    step: 10,
+  },
+];
+const colorPickerData = [
+  {
+    label: "Name Color",
+    id: "nameColor",
+    name: "nameColor",
+  },
+  {
+    label: "Text Color",
+    id: "textColor",
+    name: "textColor",
+  },
+  {
+    label: "Link Color",
+    id: "linkColor",
+    name: "linkColor",
+  },
+];
+
 const Customization = () => {
-  const { 
-    customizationOutput, 
-    setCustomizationOutput,
-    handleChange } =
-    useCustomizationStore();
-
-  const sliderData = [
-    {
-      label: "Font Size",
-      id: "fontSize",
-      name: "fontSize",
-      min: 12,
-      max: 16,
-      value: customizationOutput.fontSize,
-      step: 1,
-    },
-    {
-      label: "Icon Size",
-      id: "iconSize",
-      name: "iconSize",
-      min: 14,
-      max: 24,
-      value: customizationOutput.iconSize,
-      step: 1,
-
-    },
-    {
-      label: "Image Size",
-      id: "imageSize",
-      name: "imageSize",
-      min: 100,
-      max: 120,
-      value: customizationOutput.imageSize,
-      step: 1,
-    },
-
-
-  ];
-  const colorPickerData = [
-    {
-      label: "Your Name Color",
-      id: "nameColor",
-      name: "nameColor",
-      value: customizationOutput.nameColor,
-    },
-    {
-      label: "Text Color",
-      id: "textColor",
-      name: "textColor",
-      value: customizationOutput.textColor,
-    },
-    {
-      label: "Link Color",
-      id: "linkColor",
-      name: "linkColor",
-      value: customizationOutput.linkColor,
-    },
-  ];
+  const {
+    fontSize,
+    iconSize,
+    imageSize,
+    nameColor,
+    textColor,
+    linkColor,
+    nameFont,
+    handleChange,
+  } = useCustomizationStore();
 
   return (
     <>
       <div className="m-8">
-        <div className="w-full p-4 decoration-none  border-background">
+        <div className="w-full p-4 border-b border-background">
           <Heading
-            primary="STYLE"
+            primary="Style"
             secondary="Pick the style of your email signature"
           />
         </div>
 
-        <div className="w-full p-4">
-          {sliderData.map((item) => (
-            <Slider key={item.id} {...item} onChange={handleChange} />
-          ))}
+        <div>
+          <p className="mt-4 px-4" style={{ fontFamily: nameFont }}>
+          Main font
+          </p>
+          <FontChanger />
         </div>
-        {colorPickerData.map((item) => (
+
+        <div className="w-full p-4">
+          {sliderData.map(({ label, id, name, min, max, step }) => {
+            let value;
+            switch (name) {
+              case "fontSize":
+                value = fontSize;
+                break;
+              case "iconSize":
+                value = iconSize;
+                break;
+              case "imageSize":
+                value = imageSize;
+                break;
+              default:
+                value = 0;
+            }
+            return (
+              <Slider
+                key={id}
+                label={label}
+                id={id}
+                name={name}
+                min={min}
+                max={max}
+                step={step}
+                value={value}
+                onChange={handleChange}
+              />
+            );
+          })}
+        </div>
+
+        {colorPickerData.map(({ label, id, name }) => (
           <ColorPicker
-            key={item.id}
-            {...item}
+            key={id}
+            label={label}
+            id={id}
+            name={name}
+            value={
+              name === "nameColor"
+                ? nameColor
+                : name === "textColor"
+                ? textColor
+                : name === "linkColor"
+                ? linkColor
+                : ""
+            }
             onChange={handleChange}
           />
         ))}
-        </div>
+      </div>
     </>
   );
 };
